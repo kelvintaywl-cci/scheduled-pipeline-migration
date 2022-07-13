@@ -11,14 +11,11 @@ jobs:
 
 workflows:
  daily-run-workflow:
-   triggers:
-     - schedule:
-         # Every day, 0421Z.
-         cron: "21 4 * * *"
-         filters:
-           branches:
-             only:
-               - main
-               - develop
+   when:
+    and:
+      - equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
+      - or:
+          - equal: [ main, << pipeline.git.branch >> ]
+          - equal: [ develop, << pipeline.git.branch >> ]
    jobs:
      - build
