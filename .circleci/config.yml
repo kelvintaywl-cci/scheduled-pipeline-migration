@@ -6,6 +6,7 @@ jobs:
       - image: cimg/base:stable
     resource_class: small
     steps:
+      - checkout
       - run: echo "I am job: ${CIRCLE_JOB} running on branch: ${CIRCLE_BRANCG}"
 
 workflows:
