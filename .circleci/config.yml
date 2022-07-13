@@ -7,7 +7,7 @@ jobs:
     resource_class: small
     steps:
       - run: |
-          echo "I am job ${CIRCLE_JOB} running on branch ${CIRCLE_BRANCG}"
+          echo "I am job ${CIRCLE_JOB} running on branch ${CIRCLE_BRANCH}"
 
 workflows:
  daily-run-workflow:
